@@ -11,11 +11,11 @@ Here are some bery basic and crude examples to show how the container works.
 docker run -it rigormortiz/hugo help
 
 # create a new site
-docker run -it -v ${PWD}:/data rigormortiz/hugo new site some_site
+docker run -it -u 1000:1000 -v ${PWD}:/data rigormortiz/hugo new site some_site
 
 # add page
-docker run -it -v ${PWD}:/data rigormortiz/hugo new post/something.md
+docker run -it -u 1000:1000 -v ${PWD}:/data rigormortiz/hugo new post/something.md
 
 # serve site
-docker run -it -p 1313:1313 -v ${PWD}:/data rigormortiz/hugo server -D --bind 0.0.0.0
+docker run -it -u 1000:1000 -p 1313:1313 -v ${PWD}:/data rigormortiz/hugo server -D --bind 0.0.0.0
 ```
