@@ -24,4 +24,6 @@ VOLUME /data
 
 WORKDIR /data
 
+EXPOSE 1313
+
 ENTRYPOINT [ "/hugo" ]

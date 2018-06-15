@@ -17,5 +17,5 @@ docker run -it -v ${PWD}:/data rigormortiz/hugo new site some_site
 docker run -it -v ${PWD}:/data rigormortiz/hugo new post/something.md
 
 # serve site
-docker run -it -v ${PWD}:/data rigormortiz/hugo server -D
+docker run -it -p 1313:1313 -v ${PWD}:/data rigormortiz/hugo server -D --bind 0.0.0.0
 ```
