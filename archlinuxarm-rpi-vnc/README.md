@@ -1,5 +1,5 @@
 ### Info
-This is an ArchlinuxARM image with only the basic packages needed to get a usable TigerVNC setup. It is best to use this as a base image since there is no desktop or window manager provided.
+This is an ArchlinuxARM image for Raspberry Pi with only the basic packages needed to get a usable TigerVNC setup. It is best to use this as a base image since there is no desktop or window manager provided.
 
 ### Flags
 The image takes the following flags at run time:
