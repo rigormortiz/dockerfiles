@@ -2,15 +2,15 @@
 FROM alpine:latest AS setup
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-ENV VERSION="0.42.1"
+ENV VERSION="0.43"
 ENV RELEASE_ARCHIVE="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
-ENV RELEASE_SHA1_HASH="070b1b28f1d9f1ab3d47bae5ff0527a8f748f757"
+ENV RELEASE_SHA256_HASH="1be61308911461acfeb51d1858b46ed0b45d8bf78d06c0ac9779b5ee68c843a3"
 
 ADD ${RELEASE_ARCHIVE} /hugo.tar.gz
 
-RUN apk add --no-cache --virtual outils-sha1 && \
-    LOCAL_SHA1_HASH=$(sha1sum /hugo.tar.gz | awk '{print $1}') && \
-    if [[ "${LOCAL_SHA1_HASH}" != "${RELEASE_SHA1_HASH}" ]]; then exit 1; fi && \
+RUN apk add --no-cache --virtual outils-sha256 && \
+    LOCAL_SHA256_HASH=$(sha256sum /hugo.tar.gz | awk '{print $1}') && \
+    if [[ "${LOCAL_SHA256_HASH}" != "${RELEASE_SHA256_HASH}" ]]; then exit 1; fi && \
     tar -zxvf /hugo.tar.gz
 
 
