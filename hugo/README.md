@@ -1,5 +1,5 @@
 ### Info
-This is an Alpine Linux image with with hugo. It can be used to build and optionally serve your static wensite.
+This is an Alpine Linux image with hugo. It can be used to build and optionally serve your static wensite.
 
 Check out the [Awesome Hugo Documentation](https://gohugo.io/documentation/) for details on Hugo. 
 
