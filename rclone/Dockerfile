@@ -16,7 +16,9 @@ FROM alpine:latest
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 COPY --from=setup /rclone /rclone
+COPY get_facl.sh /get_facl.sh
+COPY set_facl.sh /set_facl.sh
 
-RUN apk add --no-cache --virtual ca-certificates
+RUN apk add --no-cache ca-certificates acl
 
 ENTRYPOINT [ "/rclone" ]

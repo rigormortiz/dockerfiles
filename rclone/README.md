@@ -15,3 +15,46 @@ docker run -it -v ${HOME}/.config/rclone:/root/.config/rclone -v some_data:/data
 # run copy to restore files from a remote called "remote" in the "backup" path/directory to the "some_data" volume
 docker run -it -v ${HOME}/.config/rclone:/root/.config/rclone -v some_data:/data rigormortiz/rclone copy remote:backup /data
 ```
+
+### Copying Permissions
+rclone does not have the ability to copy permissions. I've included a work around for this by including `get_facl.sh` and `set_facl.sh` scripts that can be used to do this.
+
+#### Example Backup Script
+
+```
+#!/bin/bash
+
+# Backup ACLs/permissions
+sudo docker run --rm \
+    --volume some_data:/data \
+    --entrypoint "/get_facl.sh" \
+    rigormortiz/rclone \
+    /data
+
+# Backup /data
+sudo docker run -it --rm \
+    --volume ${HOME}/.config/rclone:/root/.config/rclone \
+    --volume some_data:/data \
+    rigormortiz/rclone \
+    copy /data remote:backup
+```
+
+#### Example Restore Script
+
+```
+#!/bin/bash
+
+# Restore /data
+sudo docker run -it --rm \
+    --volume ${HOME}/.config/rclone:/root/.config/rclone \
+    --volume some_data:/data \
+    rigormortiz/rclone \
+    copy remote:backup /data
+
+# Restore ACLs/permissions
+sudo docker run --rm \
+    --volume some_data:/data \
+    --entrypoint "/set_facl.sh" \
+    rigormortiz/rclone \
+    /data
+```
