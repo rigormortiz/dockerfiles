@@ -1,6 +1,6 @@
 REGISTRY_PREFIX = rigormortiz
 
-.PHONY: build push pull build_image tag_latest push_image push_latest build_and_push
+.PHONY: build push build_and_push
 
 build_and_push: build push
 
