@@ -7,7 +7,7 @@ ENV RELEASE_ARCHIVE="https://downloads.rclone.org/v${VERSION}/rclone-v${VERSION}
 
 ADD ${RELEASE_ARCHIVE} /rclone.zip
 
-RUN apk add --no-cache --virtual unzip && \
+RUN apk add --no-cache --virtual unzip  ca-certificates && \
     unzip /rclone.zip && \
     mv /rclone-v${VERSION}-linux-amd64/rclone /rclone
 
