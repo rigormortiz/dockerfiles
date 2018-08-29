@@ -7,7 +7,7 @@ ENV RELEASE_ARCHIVE="https://downloads.rclone.org/v${VERSION}/rclone-v${VERSION}
 
 ADD ${RELEASE_ARCHIVE} /rclone.zip
 
-RUN apk add --no-cache --virtual unzip  ca-certificates && \
+RUN apk add --no-cache --virtual unzip && \
     unzip /rclone.zip && \
     mv /rclone-v${VERSION}-linux-amd64/rclone /rclone
 
@@ -16,5 +16,7 @@ FROM alpine:latest
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 COPY --from=setup /rclone /rclone
+
+RUN apk add --no-cache --virtual ca-certificates
 
 ENTRYPOINT [ "/rclone" ]
