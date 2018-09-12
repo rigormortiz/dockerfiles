@@ -2,9 +2,9 @@
 FROM alpine:latest AS setup
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-ENV VERSION="0.43"
+ENV VERSION="0.48"
 ENV RELEASE_ARCHIVE="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
-ENV RELEASE_SHA256_HASH="1be61308911461acfeb51d1858b46ed0b45d8bf78d06c0ac9779b5ee68c843a3"
+ENV RELEASE_SHA256_HASH="1d26dab6445fc40aa23ecd8d49cd6fdbe8b06d722907bc97b3d32e385555b2df"
 
 ADD ${RELEASE_ARCHIVE} /hugo.tar.gz
 
