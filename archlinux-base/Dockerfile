@@ -2,12 +2,12 @@
 FROM alpine AS prep
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-ENV VERSION="2018.07.01"
+ENV VERSION="2018.09.01"
 ENV BOOTSTRAP_ARCHIVE="https://archive.archlinux.org/iso/${VERSION}/archlinux-bootstrap-${VERSION}-x86_64.tar.gz"
 
 # Was going to also check sig, but as long as the hash matches up
 # to what is in this Dockerfile, pacman will validate PGP sigs for packages in the setup stage
-ENV BOOTSTRAP_SHA1_HASH="a8d4c48693797ed103435c20041be642a5f8d08a"
+ENV BOOTSTRAP_SHA1_HASH="3fdf522378468b19ca42b14caae165fb607a315d"
  
 ADD ${BOOTSTRAP_ARCHIVE} /bootstrap.tar.gz
 
