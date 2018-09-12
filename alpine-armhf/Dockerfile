@@ -2,10 +2,10 @@
 FROM alpine AS prep
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-ENV MAJOR_VERSION="3.7"
-ENV MINOR_VERSION="3.7.0"
+ENV MAJOR_VERSION="3.8"
+ENV MINOR_VERSION="3.8.0"
 ENV MINIROOT_ARCHIVE="http://dl-cdn.alpinelinux.org/alpine/v${MAJOR_VERSION}/releases/armhf/alpine-minirootfs-${MINOR_VERSION}-armhf.tar.gz"
-ENV MINIROOT_SHA256_HASH="7f39c55cbf9aaf77d7d008c1d631eea42d3028ea05e013212c3e3713a75e2598"
+ENV MINIROOT_SHA256_HASH="2909aa4f58cd02b6500d4961b4423615b896d4bf6be6169f6733d820ce5811da"
  
 ADD ${MINIROOT_ARCHIVE} /alpine/miniroot.tar.gz
 
