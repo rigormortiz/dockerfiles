@@ -2,7 +2,7 @@
 FROM alpine:latest AS setup
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-ENV VERSION="1.42"
+ENV VERSION="1.43.1"
 ENV RELEASE_ARCHIVE="https://downloads.rclone.org/v${VERSION}/rclone-v${VERSION}-linux-amd64.zip"
 
 ADD ${RELEASE_ARCHIVE} /rclone.zip
