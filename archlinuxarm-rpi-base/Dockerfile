@@ -1,12 +1,12 @@
 FROM rigormortiz/alpine-armhf:latest AS prep
 LABEL maintainer "Mike Ortiz <mike@jellydice.com>"
 
-ENV VERSION="2018.07"
+ENV VERSION="2018.09"
 ENV ROOTFS_ARCHIVE="http://il.us.mirror.archlinuxarm.org/os/rpi/ArchLinuxARM-${VERSION}-rpi-2-rootfs.tar.gz"
 
 # Was going to also check sig, but as long as the hash matches up
 # to what is in this Dockerfile, pacman will validate PGP sigs for packages in the setup stage
-ENV ROOTFS_MD5_HASH="6d6ca27d8e929dad4941651e3fa29483"
+ENV ROOTFS_MD5_HASH="16c4416103c2ec322e846d0820088c89"
  
 ADD ${ROOTFS_ARCHIVE} /arch/rootfs.tar.gz
 
