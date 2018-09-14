@@ -31,7 +31,7 @@ build_multiarch:
 	@echo "\n\n"
 ifeq (${latest},yes)
 	@echo "[[ ===== TAGGING ${REGISTRY_PREFIX}/${image}:${version} as latest for ${arch} ===== ]]"
-	docker tag ${REGISTRY_PREFIX}/${image}:${arch}${version} ${REGISTRY_PREFIX}/${image}:${arch}-latest
+	docker tag ${REGISTRY_PREFIX}/${image}:${arch}-${version} ${REGISTRY_PREFIX}/${image}:${arch}-latest
 	@echo "\n\n"
 endif
 
@@ -52,7 +52,7 @@ manifests_multiarch:
 	docker manifest push ${REGISTRY_PREFIX}/${image}:${version}
 	@echo "\n\n"
 ifeq (${latest},yes)
-	@echo "[[ ===== CREATING MANIFESTS FOR ${REGISTRY_PREFIX}/${image}:latest ===== ]]"
+	@echo "[[ ===== CREATING MANIFESTS ${REGISTRY_PREFIX}/${image}:latest ===== ]]"
 	docker manifest create ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:amd64-latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest
 	docker manifest annotate ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest} --os linux --arch arm
 	docker manifest push ${REGISTRY_PREFIX}/${image}:latest
