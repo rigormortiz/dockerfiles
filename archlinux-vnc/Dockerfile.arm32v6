@@ -1,7 +1,7 @@
 FROM rigormortiz/archlinux-base:latest
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
-COPY run_vnc.sh /run_vnc.sh
+COPY run_vnc_arm32v6.sh /run_vnc.sh
 
 RUN pacman -Sy && \
     pacman -S --noconfirm tigervnc
