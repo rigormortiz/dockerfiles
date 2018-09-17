@@ -47,14 +47,14 @@ endif
 
 manifests_multiarch:
 	@echo "[[ ===== CREATING MANIFESTS ${REGISTRY_PREFIX}/${image}:${version} ===== ]]"
-	docker manifest create ${REGISTRY_PREFIX}/${image}:${version} ${REGISTRY_PREFIX}/${image}:amd64-${version} ${REGISTRY_PREFIX}/${image}:arm32v6-${version}
+	docker manifest create --amend ${REGISTRY_PREFIX}/${image}:${version} ${REGISTRY_PREFIX}/${image}:amd64-${version} ${REGISTRY_PREFIX}/${image}:arm32v6-${version}
 	docker manifest annotate ${REGISTRY_PREFIX}/${image}:${version} ${REGISTRY_PREFIX}/${image}:arm32v6-${version} --os linux --arch arm
 	docker manifest push ${REGISTRY_PREFIX}/${image}:${version}
 	@echo "\n\n"
 ifeq (${latest},yes)
 	@echo "[[ ===== CREATING MANIFESTS ${REGISTRY_PREFIX}/${image}:latest ===== ]]"
-	docker manifest create ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:amd64-latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest
-	docker manifest annotate ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest} --os linux --arch arm
+	docker manifest create --amend ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:amd64-latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest
+	docker manifest annotate ${REGISTRY_PREFIX}/${image}:latest ${REGISTRY_PREFIX}/${image}:arm32v6-latest --os linux --arch arm
 	docker manifest push ${REGISTRY_PREFIX}/${image}:latest
 	@echo "\n\n"
 endif
