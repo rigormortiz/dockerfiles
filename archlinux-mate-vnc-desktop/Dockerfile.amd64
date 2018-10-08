@@ -8,7 +8,7 @@ RUN pacman -Sy && \
     rm /*.tar.xz &&\
     pacman -S --noconfirm arc-gtk-theme \
       arc-icon-theme git gvim firefox pass \
-      dbus sudo go gnupg && \
+      dbus sudo go gnupg code && \
     mkdir /etc/firefox && \
     echo 'user_pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
 
