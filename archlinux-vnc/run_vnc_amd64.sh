@@ -63,7 +63,7 @@ if [ "$SETUP_COMPLETE" = "0" ]; then
     chmod 0400 /home/${MY_USERNAME}/.vnc/passwd
 
     # Setup complete status
-    touch /.setup_complete
+    touch /home/${MY_USERNAME}/.setup_complete
 else
     echo "Setup has already run... starting!"
 
