@@ -1,14 +1,6 @@
 #!/bin/bash
 # Script to run VNC in docker container
 
-# Check to see if we have run before
-STATUS_FILE=/.setup_complete
-if [ -f $STATUS_FILE ]; then
-    SETUP_COMPLETE=1
-else
-    SETUP_COMPLETE=0
-fi
-
 # Set defaults
 DEFAULT_USERNAME="desktop"
 DEFAULT_VNC_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
@@ -53,6 +45,14 @@ MY_USERNAME=${USERNAME:-$DEFAULT_USERNAME}
 MY_VNC_PASSWORD=${VNC_PASSWORD:-$DEFAULT_VNC_PASSWORD}
 MY_GEOMETRY=${GEOMETRY:-$DEFAULT_GEOMETRY}
 MY_DPI=${DPI:-$DEFAULT_DPI}
+
+# Check to see if we have run before
+STATUS_FILE=/home/${MY_USERNAME}/.setup_complete
+if [ -f $STATUS_FILE ]; then
+    SETUP_COMPLETE=1
+else
+    SETUP_COMPLETE=0
+fi
 
 if [ "$SETUP_COMPLETE" = "0" ]; then
     # Echo things out
