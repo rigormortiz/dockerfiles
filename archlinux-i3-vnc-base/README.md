@@ -7,10 +7,9 @@ The image takes the following flags at run time:
 `-u|--username` (optional, default: desktop)
 `-p|--vnc-password` (optional, default: randomly generate) -  see docker logs for output
 `-g|--geometry` (optional, default: 1024x768)
-`-d|--dpi` (optional, default: 96) - useful for exporting to a retina/HiDPI display
 
 ### Run Example for image based on this one
 Images based off of this would run something like: 
 ```
-docker run -d <image_name> -u myuser -p mypassword -g 1920x1080 -d 200
+docker run -d <image_name> -u myuser -p mypassword -g 1920x1080
 ```

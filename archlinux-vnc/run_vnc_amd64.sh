@@ -5,7 +5,6 @@
 DEFAULT_USERNAME="desktop"
 DEFAULT_VNC_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 DEFAULT_GEOMETRY="1024x768"
-DEFAULT_DPI="96"
 
 # Get command-line arguments 
 while [[ $# -gt 0 ]]
@@ -28,11 +27,6 @@ case $key in
     shift # past argument
     shift # past value
     ;;
-    -d|--dpi)
-    DPI="$2"
-    shift # past argument
-    shift # past value
-    ;;
     *)    # unknown option
     POSITIONAL+=("$1") # save it in an array for later
     shift # past argument
@@ -44,7 +38,6 @@ done
 MY_USERNAME=${USERNAME:-$DEFAULT_USERNAME}
 MY_VNC_PASSWORD=${VNC_PASSWORD:-$DEFAULT_VNC_PASSWORD}
 MY_GEOMETRY=${GEOMETRY:-$DEFAULT_GEOMETRY}
-MY_DPI=${DPI:-$DEFAULT_DPI}
 
 # Check to see if we have run before
 STATUS_FILE=/home/${MY_USERNAME}/.setup_complete
@@ -60,15 +53,9 @@ if [ "$SETUP_COMPLETE" = "0" ]; then
     echo USERNAME     = "${MY_USERNAME}"
     echo VNC_PASSWORD = "${MY_VNC_PASSWORD}"
     echo GEOMETRY     = "${MY_GEOMETRY}"
-    echo DPI          = "${MY_DPI}"
 
     # Create user
     useradd -m -s /bin/bash ${MY_USERNAME}
-
-    # Set DPI and resolution
-    echo "geometry=${MY_GEOMETRY}" | su -c "tee -a /home/${MY_USERNAME}/.vnc/config" - ${MY_USERNAME}
-    echo "dpi=${MY_DPI}" | su -c "tee -a /home/${MY_USERNAME}/.vnc/config" - ${MY_USERNAME}
-    echo "Xft.dpi: ${MY_DPI}" > /home/${MY_USERNAME}/.Xresources
 
     # Set VNC password
     echo "${MY_VNC_PASSWORD}" | vncpasswd -f > /home/${MY_USERNAME}/.vnc/passwd
