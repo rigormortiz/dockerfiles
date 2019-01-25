@@ -15,5 +15,7 @@ steps:
         - latest-amd64
         - 2019.01.01-amd64
     when:
+      event:
+        - push
       branch:
         - archlinux/*
