@@ -1,0 +1,19 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: archlinux-base-amd64
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: registry-username
+      password:
+        from_secret: registry-password
+      repo: rigormortiz/archlinux
+      dockerfile: archlinux/Dockerfile.amd64
+      tags:
+        - latest-amd64
+        - 2019.01.01-amd64
+    when:
+      branch:
+        - archlinux/*
