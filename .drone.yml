@@ -19,3 +19,7 @@ steps:
         - push
       branch:
         - archlinux/*
+
+trigger:
+  event:
+    - push
