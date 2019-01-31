@@ -1,6 +1,7 @@
 kind: pipeline
 name: default
 
+# kick drone
 steps:
   - name: archlinux-base-amd64
     image: plugins/docker
