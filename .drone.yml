@@ -1,8 +1,8 @@
 kind: pipeline
-name: default
+name: archlinux-base-images
 
 steps:
-  - name: archlinux-base-amd64
+  - name: archlinux-amd64
     image: plugins/docker
     settings:
       username:
@@ -19,6 +19,19 @@ steps:
           #- push
           #branch:
           #- archlinux/*
+  - name: archlinux-arm32v6
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: registry-username
+      password:
+        from_secret: registry-password
+      repo: rigormortiz/archlinux
+      dockerfile: archlinux/Dockerfile.arm32v6
+      tags:
+        - latest-arm32v6
+        - 2019.01-arm32v6
+  
 
 trigger:
   branch:
