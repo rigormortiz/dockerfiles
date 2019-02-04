@@ -34,6 +34,7 @@ RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && \
     pacman -Scc --noconfirm && \
     rm -rf /usr/share/man/* /usr/share/doc/*
 
+COPY qemu-arm-static /usr/bin
 
 # Final Stage - mainly to flatten
 FROM scratch
