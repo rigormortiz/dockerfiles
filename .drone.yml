@@ -17,7 +17,7 @@ steps:
         - 2019.02.01-amd64
 
   - name: build-archlinux-arm32v6
-    image: plugins/docker
+    image: plugins/docker:linux-arm
     settings:
       username:
         from_secret: registry-username
