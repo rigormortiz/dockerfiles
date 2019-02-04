@@ -14,7 +14,7 @@ steps:
       dockerfile: archlinux/Dockerfile.amd64
       tags:
         - latest-amd64
-        - 2019.01.01-amd64
+        - 2019.02.01-amd64
 
   - name: build-archlinux-arm32v6
     image: plugins/docker
@@ -27,7 +27,7 @@ steps:
       dockerfile: archlinux/Dockerfile.arm32v6
       tags:
         - latest-arm32v6
-        - 2019.01.01-arm32v6
+        - 2019.01.02-arm32v6
   
 trigger:
   branch:
