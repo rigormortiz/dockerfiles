@@ -1,8 +1,9 @@
+---
 kind: pipeline
 name: archlinux-base-images
 
 steps:
-  - name: archlinux-amd64
+  - name: build-archlinux-amd64
     image: plugins/docker
     settings:
       username:
@@ -14,12 +15,8 @@ steps:
       tags:
         - latest-amd64
         - 2019.01.01-amd64
-          #when:
-          #event:
-          #- push
-          #branch:
-          #- archlinux/*
-  - name: archlinux-arm32v6
+
+  - name: build-archlinux-arm32v6
     image: plugins/docker
     settings:
       username:
@@ -30,9 +27,8 @@ steps:
       dockerfile: archlinux/Dockerfile.arm32v6
       tags:
         - latest-arm32v6
-        - 2019.01-arm32v6
+        - 2019.01.01-arm32v6
   
-
 trigger:
   branch:
     - archlinux
