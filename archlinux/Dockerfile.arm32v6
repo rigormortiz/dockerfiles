@@ -25,7 +25,7 @@ RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && \
     pacman-key --init && \
     pacman-key --populate archlinuxarm && \
     pacman -Rs --noconfirm device-mapper crda \
-        cryptsetup dhcpcd lvm2 mkinitcpio netctl \
+        dhcpcd lvm2 mkinitcpio netctl \
         systemd-sysvcompat linux-raspberrypi && \
     pacman -Syu --noconfirm && \
     pacman -Scc --noconfirm && \
