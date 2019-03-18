@@ -1,9 +1,9 @@
 FROM rigormortiz/alpine-armhf:latest AS prep
 LABEL maintainer "Mike Ortiz <mike@jellydice.com>"
 
-ENV VERSION="2019.02"
+ENV VERSION="2019.03"
 ENV ROOTFS_ARCHIVE="http://il.us.mirror.archlinuxarm.org/os/rpi/ArchLinuxARM-${VERSION}-rpi-2-rootfs.tar.gz"
-ENV ROOTFS_MD5_HASH="2fedd98802f312536684a271a6db0a02"
+ENV ROOTFS_MD5_HASH="7eb0b8b7f379cdf81a99172ae858af9e"
  
 ADD ${ROOTFS_ARCHIVE} /arch/rootfs.tar.gz
 
