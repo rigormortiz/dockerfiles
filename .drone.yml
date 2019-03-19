@@ -1,0 +1,36 @@
+---
+kind: pipeline
+name: archlinux-base-images
+
+steps:
+  - name: build-archlinux-amd64
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: registry-username
+      password:
+        from_secret: registry-password
+      repo: rigormortiz/archlinux
+      dockerfile: archlinux/Dockerfile.amd64
+      tags:
+        - latest-amd64
+        - 2019.02.01-amd64
+
+  - name: build-archlinux-arm32v6
+    image: reg.mikeortiz.us:5000/drone-plugins/docker:latest-arm32v6
+    settings:
+      username:
+        from_secret: registry-username
+      password:
+        from_secret: registry-password
+      repo: rigormortiz/archlinux
+      dockerfile: archlinux/Dockerfile.arm32v6
+      tags:
+        - latest-arm32v6
+        - 2019.01.02-arm32v6
+  
+trigger:
+  branch:
+    - archlinux
+  event:
+    - push
