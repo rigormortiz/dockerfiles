@@ -1,5 +1,5 @@
 [global]
-font = SauceCodePro Nerd Font Regular 11
+font = Noto Sans Mono 9
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
