@@ -3,9 +3,8 @@ LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 RUN pacman -Sy && \
     pacman -S --noconfirm termite arc-gtk-theme noto-fonts \
-      arc-icon-theme git gvim i3blocks i3lock firefox\
-      rarian sudo lxappearance pass \
-      rofi dunst compton go gnupg && \
+      arc-icon-theme git gvim i3blocks i3lock firefox rarian \
+      sudo lxappearance pass rofi dunst compton go gnupg && \
     mkdir /etc/firefox && \
     echo 'user_pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
 
