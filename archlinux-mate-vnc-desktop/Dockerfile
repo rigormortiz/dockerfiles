@@ -3,7 +3,6 @@ LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 
 RUN pacman -Sy && \
-    rm /*.tar.xz &&\
     pacman -S --noconfirm arc-gtk-theme \
       arc-icon-theme git gvim firefox pass \
       dbus sudo go gnupg && \
