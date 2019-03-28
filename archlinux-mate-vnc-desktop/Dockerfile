@@ -1,4 +1,4 @@
-FROM rigormortiz/archlinux-mate-vnc-base:latest
+FROM rigormortiz/archlinux-mate-vnc:latest
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 
