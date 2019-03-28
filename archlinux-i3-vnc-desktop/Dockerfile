@@ -1,4 +1,4 @@
-FROM rigormortiz/archlinux-i3-vnc-base:latest
+FROM rigormortiz/archlinux-i3-vnc:latest
 LABEL maintainer Mike Ortiz <mike@jellydice.com>
 
 COPY nerd-fonts.pkg.tar.xz /nerd-fonts.pkg.tar.xz
