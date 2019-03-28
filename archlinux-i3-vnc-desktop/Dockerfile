@@ -6,7 +6,7 @@ RUN pacman -Sy && \
       arc-icon-theme git gvim i3blocks i3lock firefox rarian \
       sudo lxappearance pass rofi dunst compton go gnupg && \
     mkdir /etc/firefox && \
-    echo 'user_pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
+    echo 'pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
 
 COPY i3_config /etc/skel/.config/i3/config
 COPY i3blocks.conf /etc/skel/.config/i3/i3blocks.conf
